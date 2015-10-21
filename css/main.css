@@ -3,3 +3,60 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 }
+	.navbar-default {
+		background-color: rgb(23, 20, 69);
+	}
+
+	.navigation {
+		position: fixed;
+		background-color: #181C22;
+		font-size: 16px;
+		padding-left: 15px;
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+
+	.navigaton ul {
+		margin-top: .5em;
+		width: 400px;
+		margin: 0 auto;
+	}
+
+	.navigation li {
+		display: inline;
+	}
+
+	.navigation a {
+		padding: 0.5em 0.5em 0.5em 0.5em;
+		color: white;
+	}
+
+	.navbar a:hover {
+		text-decoration: none;
+		color: #D87E28;
+	}
+
+	.choose {
+		text-align: center;
+		font-size: 100px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	h2 {
+		font-size: 3em;
+	}
+
+	#details {
+		font-size: 1em;
+	}
+
+	#description {
+		font-size: 1.5em;
+
+	}
+
+
+
+}

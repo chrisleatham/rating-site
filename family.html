@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+      <title>Rotten Potatoes</title>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Importing jQuery.js. -->
+      <script src="https://code.jquery.com/jquery.min.js"></script>
+
+      <!-- Importing bootstrap.css. -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+      </script>
+
+      <script type="text/javascript" src="js/input.js"></script>
+      <link rel="stylesheet" href="css/main.css"/>
+
+  </head>
+
+  <body>
+    <div class="heading">
+      <div class="col-xs-12">
+
+        <h1>
+          <img id="logo", src="img/logo.jpg"/>
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <ul id="navlist">
+            <li><a href="pages/comedy.html">Comedy</a></li>
+            <li><a href="pages/family.html">Family Friendly</a></li>
+            <li><a href="pages/action.html">Action/Adventure</a></li>
+            <li><a href="pages/horror.html">Horror</a></li>
+            <li><a href="pages/documentary.html">Documentary</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="product">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <img id="requiem", src="img/requiem.jpg"/>
+            <p>Average rating:</p>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <h2>Requiem for a Dream</h2>
+            <p id="details">
+              Rated G  |  102 min  |  Family-Friendly |  15 December 2000 
+            </p>
+            <p id="description"> The Story of four Coney Island friends as they live fun
+              adventures and dabble in different businesses. Often used as an educational film, Requiem for a Dream teaches young  children different lessons in business and transactions, sexual education, how to be your own boss, and to always strive to be your best. Academy acclaimed actors Jared Leto and Marlon Wayans teach you the true meaning of friendship along with Jennifer Connelly teaching you what it is like to love someone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="container">
+        <div class="rows">
+          <div class="col-xs-12 col-md-6">
+            <h2>Write a Review!</h2>
+            <form role="form">
+              <div class="form-group">
+                <input type="title" class="form-control" id="title" placeholder="Title of your review"></input>
+                <textarea type="review" class="form-control" rows="8" id="review" placeholder="What did you think?"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+              
+
+  </body>
+</html>
