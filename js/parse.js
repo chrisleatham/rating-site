@@ -34,7 +34,11 @@ var getData = function() {
 }
 
 var buildList = function(data) {
-	$().empty()
+	$('ul').empty()
+
+    data.forEach(function(d){
+        addItem(d);
+    })
 
 }
 
@@ -43,6 +47,8 @@ var addItem = function(item) {
 	var review = item.get('review')
 
 	var user = Math.random();
+
+    var li = $('<li>' + title + '</li>' + '<li>' + review + '</li>');
 
 	var total = $()
 
@@ -54,8 +60,8 @@ var addItem = function(item) {
 		})
 	})
 
-	total.append(button);
-	$('').append();
+	li.append(button);
+	$('ul').append();
 }
 
 getData();

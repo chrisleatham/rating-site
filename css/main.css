@@ -1,3 +1,7 @@
+h1 {
+	text-align: center;
+}
+
 img {
 	display: block;
 	margin-left: auto;
@@ -46,6 +50,9 @@ img {
 
 	h2 {
 		font-size: 3em;
+		text-align: center;
+		margin-top: 3em;
+		margin-bottom: 3em;
 	}
 
 	#details {
