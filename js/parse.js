@@ -23,8 +23,8 @@ $('form').submit(function() {
 
 var getData = function() {
     var query = new Parse.Query(Review);
-    query.exists('title');
-    query.exists('review');
+    query.exists('title', '');
+    query.exists('review', '');
 
     query.find({
         success: function(response){
@@ -32,3 +32,30 @@ var getData = function() {
         }
     });
 }
+
+var buildList = function(data) {
+	$().empty()
+
+}
+
+var addItem = function(item) {
+	var title = item.get('title')
+	var review = item.get('review')
+
+	var user = Math.random();
+
+	var total = $()
+
+	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
+
+	button.click(function(){
+		item.destroy({
+			success:getData
+		})
+	})
+
+	total.append(button);
+	$('').append();
+}
+
+getData();
