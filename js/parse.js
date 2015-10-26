@@ -58,7 +58,7 @@ var addItem = function(item) {
  
 	var user = Math.random();
 
-    var li = $('<li> User: ANON ' + user + '<li>' + title + '</li>' + '<li>' + review + '</li>');
+    var li = $('<li> User: ANON ' + user + '<h2>' + title + '</h2>' + '<p>' + review + '</p>');
 
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 

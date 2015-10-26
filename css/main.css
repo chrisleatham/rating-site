@@ -51,8 +51,8 @@ img {
 	h2 {
 		font-size: 3em;
 		text-align: center;
-		margin-top: 3em;
-		margin-bottom: 3em;
+		margin-top: 2em;
+		margin-bottom: 2em;
 	}
 
 	#details {
@@ -62,6 +62,14 @@ img {
 	#description {
 		font-size: 1.5em;
 
+	}
+
+	ul {
+		font-size: 1.5em;
+	}
+
+	#list {
+		background-color: #C0C0C0;
 	}
 
 
