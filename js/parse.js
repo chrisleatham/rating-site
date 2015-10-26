@@ -1,4 +1,4 @@
-Parse.initialize("9w3zkAemBkVmgQjtHvVRudKNMNUGtCT94WnQrOYc", "SWCpPCOCyHWpoVwNyNfB1MY579rOL0BciLLVYv3U");
+Parse.initialize("5sgSNcsqShnQdHqQ3ySvySymCeUpQEIfbVKbVBqA", "hWSQVuECvZe3gnOKYUQH5T66DWd73oVhDoSZjS91");
 
 var Review = Parse.Object.extend('Review');
 
@@ -8,18 +8,21 @@ $('form').submit(function() {
     var reviewItem = new Review();
 
     $(this).find('input').each(function(){
-        review.set($(this).attr('id'), $(this).val());
+        reviewItem.set($(this).attr('id'), $(this).val());
         $(this).val('');
     })
 
-    music.save(null,{
-        success: function() {
-            getData();
-        }
+    $(this).find('textarea').each(function(){
+        reviewItem.set($(this).attr('id'), $(this).val());
+        $(this).val('');
+    })
+
+    reviewItem.save(null,{
+        success: getData
     });
 
     return false;
-)}
+}
 
 var getData = function() {
     var query = new Parse.Query(Review);
@@ -30,7 +33,7 @@ var getData = function() {
         success: function(response){
             buildList(response);
         }
-    });
+    })
 }
 
 var buildList = function(data) {
@@ -50,13 +53,11 @@ var addItem = function(item) {
 
     var li = $('<li>' + title + '</li>' + '<li>' + review + '</li>');
 
-	var total = $()
-
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
 	button.click(function(){
 		item.destroy({
-			success:getData
+			success: getData
 		})
 	})
 
