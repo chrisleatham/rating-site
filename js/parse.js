@@ -18,13 +18,13 @@ $('form').submit(function() {
     })
 
     reviewItem.save(null,{
-        success: getData
+        success: getData, 
     });
 
     return false;
 })
 
-$('#stars').raty();
+
 
 var amount;
 var total;
@@ -44,7 +44,7 @@ var getData = function() {
 }
 
 var buildList = function(data) {
-	$('ul').empty()
+	$('#list').empty()
 
     data.forEach(function(d){
         addItem(d);
@@ -58,7 +58,7 @@ var addItem = function(item) {
  
 	var user = Math.random();
 
-    var li = $('<li> User: ' + user + '<li>' + title + '</li>' + '<li>' + review + '</li>');
+    var li = $('<li> User: ANON ' + user + '<li>' + title + '</li>' + '<li>' + review + '</li>');
 
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
@@ -69,7 +69,7 @@ var addItem = function(item) {
 	})
 
 	li.append(button);
-	$('ul').append();
+	$('#list').append(li);
 }
 
 getData();
