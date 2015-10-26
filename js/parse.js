@@ -24,7 +24,14 @@ $('form').submit(function() {
     return false;
 })
 
+$('#stars').raty();
+
+var amount;
+var total;
+
 var getData = function() {
+	amount = 0;
+	total = 0;
     var query = new Parse.Query(Review);
     query.exists('title', '');
     query.exists('review', '');
@@ -48,7 +55,7 @@ var buildList = function(data) {
 var addItem = function(item) {
 	var title = item.get('title')
 	var review = item.get('review')
-
+ 
 	var user = Math.random();
 
     var li = $('<li> User: ' + user + '<li>' + title + '</li>' + '<li>' + review + '</li>');
