@@ -1,11 +1,16 @@
 Parse.initialize("5sgSNcsqShnQdHqQ3ySvySymCeUpQEIfbVKbVBqA", "hWSQVuECvZe3gnOKYUQH5T66DWd73oVhDoSZjS91");
 
 var Review = Parse.Object.extend('Review');
+$('#stars').raty({
+    'score': 3,
+    size: 24
+})
 
 
 $('form').submit(function() {
     
     var reviewItem = new Review();
+    var rating = $('.rating').raty('score');
 
     $(this).find('input').each(function(){
         reviewItem.set($(this).attr('id'), $(this).val());
@@ -17,6 +22,10 @@ $('form').submit(function() {
         $(this).val('');
     })
 
+    reviewItem.set('rating', rating);
+
+
+
     reviewItem.save(null,{
         success: getData, 
     });
@@ -26,12 +35,8 @@ $('form').submit(function() {
 
 
 
-var amount;
-var total;
 
 var getData = function() {
-	amount = 0;
-	total = 0;
     var query = new Parse.Query(Review);
     query.exists('title', '');
     query.exists('review', '');
