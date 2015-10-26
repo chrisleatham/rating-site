@@ -22,7 +22,7 @@ $('form').submit(function() {
     });
 
     return false;
-}
+})
 
 var getData = function() {
     var query = new Parse.Query(Review);
@@ -51,7 +51,7 @@ var addItem = function(item) {
 
 	var user = Math.random();
 
-    var li = $('<li>' + title + '</li>' + '<li>' + review + '</li>');
+    var li = $('<li> User: ' + user + '<li>' + title + '</li>' + '<li>' + review + '</li>');
 
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
