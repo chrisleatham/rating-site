@@ -22,6 +22,8 @@ $('form').submit(function() {
     })
 
     reviewItem.set('rating', rating);
+    reviewItem.set('likes', 0);
+    reviewItem.set('totalLikes', 0);
 
 
 
@@ -35,8 +37,8 @@ $('form').submit(function() {
 var total;
 var average;
 var totalRating;
-var likes;
-var totalLikes; 
+var likes = 0;
+var totalLikes = 0; 
 
 var getData = function() {
     var query = new Parse.Query(Review);
@@ -77,7 +79,7 @@ var addItem = function(item) {
 
     
 
-    var li = $('<li> User: ANON ' + user + '<h2>' + title + '</h2>' + '<p> Rating: <div id="ratingStars'+item.id+'" ></div></p>' + '<p>' + review + '</p>');
+    var li = $('<li> User: ANON ' + user + '<h3>' + title + '</h3>' + '<p> Rating: <div id="ratingStars'+item.id+'" ></div></p>' + '<p id="content">' + review + '</p>' + '<p>' + likes + ' out of ' + totalLikes + ' found this review helpful </p>');
     var likeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-up"</span></button>');
     var dislikeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-down"</span></button>');
 
@@ -90,21 +92,21 @@ var addItem = function(item) {
 	})
 
     likeButton.click(function(){
-        likes++;
-        totalLikes++;
-        getData;
+        likes++
+        totalLikes++
+        getData
     })
 
     dislikeButton.click(function(){
-        totalLikes++;
-        getData;
+        totalLikes++
+        getData
     })
 
 	li.append(likeButton, dislikeButton, button);
 	$('#list').append(li);
     $('#ratingStars' + item.id).raty({readOnly: true, score: function() {
             return rating;
-        }});
+    }});
 }
 
 getData();
