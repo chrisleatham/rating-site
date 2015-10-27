@@ -1,11 +1,16 @@
+//Chris Leatham
+
+//Initializing Parse
 Parse.initialize("5sgSNcsqShnQdHqQ3ySvySymCeUpQEIfbVKbVBqA", "hWSQVuECvZe3gnOKYUQH5T66DWd73oVhDoSZjS91");
 
+//Setting up the review stars with Raty
 var Review = Parse.Object.extend('Review');
 $('#stars').raty({
     'score': 3,
     size: 24
 })
 
+//Sending the form inputs to Parse
 $('form').submit(function() {
     
     var reviewItem = new Review();
@@ -34,12 +39,14 @@ $('form').submit(function() {
     return false;
 })
 
+//Initializing variables
 var total;
 var average;
 var totalRating;
 var likes = 0;
 var totalLikes = 0; 
 
+//Finding data in Parse
 var getData = function() {
     var query = new Parse.Query(Review);
     query.exists('title', '');
@@ -54,6 +61,7 @@ var getData = function() {
     })
 }
 
+//Building the data list and setting the average
 var buildList = function(data) {
 	$('#list').empty()
 
@@ -67,11 +75,13 @@ var buildList = function(data) {
 }
 
 
-
+//Adding the items to the list to display
 var addItem = function(item) {
 	var title = item.get('title');
 	var review = item.get('review');
-    var rating = item.get('rating');
+    var rating = item.get('rating'); 
+    var likes = item.get('likes');
+    var totalLikes = item.get('totalLikes'); 
 	var user = Math.random();
     total++;
 
@@ -79,9 +89,10 @@ var addItem = function(item) {
 
     
 
-    var li = $('<li> User: ANON ' + user + '<h3>' + title + '</h3>' + '<p> Rating: <div id="ratingStars'+item.id+'" ></div></p>' + '<p id="content">' + review + '</p>' + '<p>' + likes + ' out of ' + totalLikes + ' found this review helpful </p>');
+    var li = $('<li> User: ANON ' + user + '<h3 id="title">' + '</h3>' + '<p> Rating: <div id="ratingStars'+item.id+'" ></div></p>' + '<p id="content">' + review + '</p>' + '<p>' + likes + ' out of ' + totalLikes + ' found this review helpful </p>');
     var likeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-up"</span></button>');
     var dislikeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-down"</span></button>');
+    li.find('#title').text(title);
 
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
@@ -92,14 +103,17 @@ var addItem = function(item) {
 	})
 
     likeButton.click(function(){
-        likes++
-        totalLikes++
-        getData
+        item.increment('likes');
+        item.increment('totalLikes');
+        item.save();
+        console.log('likes')
+        getData();
     })
 
     dislikeButton.click(function(){
-        totalLikes++
-        getData
+        item.increment('totalLikes');
+        item.save();
+        getData();
     })
 
 	li.append(likeButton, dislikeButton, button);

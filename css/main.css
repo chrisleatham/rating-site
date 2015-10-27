@@ -1,36 +1,40 @@
-	.navbar-default {
-		background-color: rgb(23, 20, 69);
-	}
+/* Chris Leatham */
 
-	.navigation {
-		background-color: #181C22;
-		font-size: 16px;
-		padding-left: 15px;
-		width: 100%;
-		float: left;
-		text-align: center;
-	}
+/* NAVBAR */
+.navbar-default {
+	background-color: rgb(23, 20, 69);
+}
 
-	.navigaton ul {
-		margin-top: .5em;
-		width: 400px;
-		margin: 0 auto;
-	}
+.navigation {
+	background-color: #181C22;
+	font-size: 16px;
+	padding-left: 15px;
+	width: 100%;
+	float: left;
+	text-align: center;
+}
 
-	.navigation li {
-		display: inline;
-	}
+.navigaton ul {
+	margin-top: .5em;
+	width: 400px;
+	margin: 0 auto;
+}
 
-	.navigation a {
-		padding: 0.5em 0.5em 0.5em 0.5em;
-		color: white;
-	}
+.navigation li {
+	display: inline;
+}
 
-	.navbar a:hover {
-		text-decoration: none;
-		color: #D87E28;
-	}
+.navigation a {
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	color: white;
+}
 
+.navbar a:hover {
+	text-decoration: none;
+	color: #D87E28;
+}
+
+/* TITLES */
 h1 {
 	text-align: center;
 }
@@ -46,40 +50,38 @@ img {
 	margin-right: auto;
 }
 
+/* SMALLER TEXT */
+.choose {
+	text-align: center;
+	font-size: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	.choose {
-		text-align: center;
-		font-size: 100px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+h2 {
+	font-size: 3em;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
 
-	h2 {
-		font-size: 3em;
-		text-align: center;
-		margin-top: 2em;
-		margin-bottom: 2em;
-	}
+#details {
+	font-size: 1em;
+}
 
-	#details {
-		font-size: 1em;
-	}
+#description {
+	font-size: 1.5em;
 
-	#description {
-		font-size: 1.5em;
+}
 
-	}
+ul {
+	font-size: 1.5em;
+}
 
-	ul {
-		font-size: 1.5em;
-	}
+#list {
+	background-color: rgba(192,192,192, 0.25);
+}
 
-	#list {
-		background-color: rgba(192,192,192, 0.25);
-	}
-
-	#content {
-		font-size: 1.5em;
-	}
-
+#content {
+	font-size: 1.5em;
 }
