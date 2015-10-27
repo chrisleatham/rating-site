@@ -6,7 +6,6 @@ $('#stars').raty({
     size: 24
 })
 
-
 $('form').submit(function() {
     
     var reviewItem = new Review();
@@ -33,14 +32,19 @@ $('form').submit(function() {
     return false;
 })
 
-
-
+var total;
+var average;
+var totalRating;
+var likes;
+var totalLikes; 
 
 var getData = function() {
     var query = new Parse.Query(Review);
     query.exists('title', '');
     query.exists('review', '');
-
+    total = 0;
+    average = 0;
+    totalRating = 0;
     query.find({
         success: function(response){
             buildList(response);
@@ -54,16 +58,28 @@ var buildList = function(data) {
     data.forEach(function(d){
         addItem(d);
     })
-
+    average = Math.round((totalRating/total));
+    $('#average').raty({readOnly: true, score: function() {
+            return average;
+    }});
 }
 
-var addItem = function(item) {
-	var title = item.get('title')
-	var review = item.get('review')
- 
-	var user = Math.random();
 
-    var li = $('<li> User: ANON ' + user + '<h2>' + title + '</h2>' + '<p>' + review + '</p>');
+
+var addItem = function(item) {
+	var title = item.get('title');
+	var review = item.get('review');
+    var rating = item.get('rating');
+	var user = Math.random();
+    total++;
+
+    totalRating += rating;
+
+    
+
+    var li = $('<li> User: ANON ' + user + '<h2>' + title + '</h2>' + '<p> Rating: <div id="ratingStars'+item.id+'" ></div></p>' + '<p>' + review + '</p>');
+    var likeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-up"</span></button>');
+    var dislikeButton = $('<button class="btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-down"</span></button>');
 
 	var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
@@ -73,8 +89,22 @@ var addItem = function(item) {
 		})
 	})
 
-	li.append(button);
+    likeButton.click(function(){
+        likes++;
+        totalLikes++;
+        getData;
+    })
+
+    dislikeButton.click(function(){
+        totalLikes++;
+        getData;
+    })
+
+	li.append(likeButton, dislikeButton, button);
 	$('#list').append(li);
+    $('#ratingStars' + item.id).raty({readOnly: true, score: function() {
+            return rating;
+        }});
 }
 
 getData();
