@@ -1,5 +1,7 @@
 # rating-site
 
+This website is a website that allows you to rate what I think are the top movies in each genre. 
+
 Did you receive help from any other sources (classmates, etc.)? If so, please list who.
 
   Yes, I received help from Alex Bell-Towne and Arvin as well Mike Freeman. 
